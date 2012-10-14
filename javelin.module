@@ -4,4 +4,10 @@
  * @file
  * A block module that displays recent blog and forum posts.
  */
-
+function javelin_help($path, $arg){
+    switch ($path) {
+        case "admin/help#javelin":
+            return '<p>' . t("Provides LinkedIn API peoplesearch tools.") . '</p>';
+            break;
+    }
+}
