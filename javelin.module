@@ -11,3 +11,14 @@ function javelin_help($path, $arg){
             break;
     }
 }
+
+/**
+ * Implements hook_block_info().
+ */
+function javelin_block_info() {
+  $blocks['javelin_test_block'] = array(
+    'info' => t('Javelin test block'), //The name that will appear in the block list.
+    'cache' => DRUPAL_CACHE_PER_ROLE, //Default
+  );
+  return $blocks;
+}
