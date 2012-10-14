@@ -1,0 +1,7 @@
+<?php
+
+/**
+ * @file
+ * A block module that displays recent blog and forum posts.
+ */
+
