@@ -2,7 +2,7 @@
 
 /**
  * @file
- * A block module that displays recent blog and forum posts.
+ * This is the Javelin module file
  */
 function javelin_help($path, $arg){
     switch ($path) {
@@ -21,4 +21,65 @@ function javelin_block_info() {
     'cache' => DRUPAL_CACHE_PER_ROLE, //Default
   );
   return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ * 
+ * Prepares the contents of the block.
+ */
+function javelin_block_view($delta = '') {
+  switch($delta){
+    case 'javelin_test_block':
+      $block['subject'] = t('Current posts');
+      if(user_access('access content')){
+        //Use our custom function to retrieve data.
+        $result = javelin_get_recent_posts();
+        //Array to contain items for the block to render.
+        $items = array();
+        //Iterate over the resultset and format as links.
+        foreach ($result as $node){
+          $items[] = array(
+            'data' => l($node->title, 'node/' . $node->nid),
+          ); 
+        }
+      
+        if (empty($items)) { //No content in the last week.
+          $block['content'] = t('No posts available.');  
+        } 
+        else {
+          //Pass data through theme function.
+          $block['content'] = theme('item_list', array(
+            'items' => $items));
+        }
+      }
+    return $block;
+  }
+  
+}
+
+/**
+ * Custom content function. 
+ * 
+ * Does some stuff, we're describing it here.
+ * 
+ * @return 
+ *   A result set of stuff.
+ */
+function javelin_get_recent_posts(){
+  //Get today's date.
+  $today = getdate();
+  //Calculate the date a week ago.
+  $start_time = mktime(0, 0, 0,$today['mon'],($today['mday'] - 7), $today['year']);
+  //Get all posts from one week ago to the present.
+  $end_time = time();
+
+  //Use Database API to retrieve current posts.
+  $query = db_select('node', 'n')
+    ->fields('n', array('nid', 'title', 'created'))
+    ->condition('status', 1) //Published.
+    ->condition('created', array($start_time, $end_time), 'BETWEEN')
+    ->orderBy('created', 'DESC') //Most recent first.
+    ->execute(); 
+  return $query;  
 }
