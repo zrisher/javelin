@@ -1,8 +1,9 @@
 ;info file for Javelin project
-Name = Javelin
+name = Javelin
 description = Provider for LinkedIn people search tools
 core = 7.x
 php = 5.3
+version = 7.x-0.0.1
 ;stylesheets[all][] = node.css
 ;scripts[] = somescript.js - included in every node view
 ;files[] = example.test
