@@ -4,7 +4,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-/*
+
 $config['urls']['protocol'] = 'http://';
 $config['urls']['server'] = $_SERVER['SERVER_NAME'];//'avarice.elasticbeanstalk.com';
 $config['urls']['recovery_page'] = $config['urls']['protocol'].$config['urls']['server'].'/avarice';
@@ -17,5 +17,5 @@ $config['oauth']['consumerkey']="l7trmkggic9u";
 $config['oauth']['requesttokenurl']="https://api.linkedin.com/uas/oauth/requestToken?scope=r_fullprofile+r_network";
 $config['oauth']['accesstokenurl']="https://api.linkedin.com/uas/oauth/accessToken";
 $config['oauth']['authurl']="https://api.linkedin.com/uas/oauth/authorize";
-*/
+
 ?>
