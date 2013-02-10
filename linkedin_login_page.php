@@ -46,11 +46,8 @@ $oauthc->setNonce(rand());
 
 if(empty($_SESSION['oauth_lrequest_secret'])) {
     //get the request token and store it
-    try {
-    $request_token_info = $oauthc->getRequestToken($config['oauth']['requesttokenurl'],$callback_url);}
-    catch (exception $e){
-        print_xml($oauthc->getLastResponse());
-    }
+    $request_token_info = $oauthc->getRequestToken($config['oauth']['requesttokenurl'],$callback_url);
+    
     $_SESSION['oauth_lrequest_secret'] = $request_token_info['oauth_token_secret'];
     $_SESSION['oauth_lrequest_token'] = $request_token_info['oauth_token'];
     //forward user to authorize url
@@ -58,6 +55,7 @@ if(empty($_SESSION['oauth_lrequest_secret'])) {
 }
 
 if(empty($_SESSION['oauth_laccess_token'])) {
+        try {
     //get the access token and store it
     $oauthc->setToken($_SESSION['oauth_lrequest_token'],$_SESSION['oauth_lrequest_secret']);
     //first used to be $_REQUEST['oauth_token'], any issues just using recently saved one instead of posted?
@@ -65,6 +63,10 @@ if(empty($_SESSION['oauth_laccess_token'])) {
     $_SESSION['oauth_laccess_token']= $access_token_info['oauth_token'];
     $_SESSION['oauth_laccess_secret']= $access_token_info['oauth_token_secret'];
     $_SESSION['oauth_verifier'] = $_REQUEST['oauth_verifier'];
+        }
+        catch (exception $e){
+        print_xml($oauthc->getLastResponse());
+    }
 }
 
 if (oauth_check_set() AND isset($_SESSION['current_callback_url'])){
