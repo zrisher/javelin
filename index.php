@@ -33,7 +33,10 @@ session_z_begin()
         
         <?php print_p('server name is '.$_SERVER['SERVER_NAME']);
         print_p('script name is '.$_SERVER['SCRIPT_NAME']); 
-        print_p('file path name is '.dirname(__FILE__)); ?>
+        print_p('file path name is '.dirname(__FILE__));
+        'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
+        
+        ?>
         
         <h1>The Tool</h1>
         
