@@ -11,7 +11,7 @@ error_reporting(E_ALL);
 ini_set( 'display_errors','1');
 
 //requires
-require 'helper.php';
+require_once 'helper.php';
 require 'config.php';
 
 function oauth_check_set(){

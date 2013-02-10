@@ -23,7 +23,7 @@ error_reporting(E_ALL);
 ini_set( 'display_errors','1');
 
 //requires
-require 'helper.php';
+require_once 'helper.php';
 require 'config.php';
 require 'linkedin_helper.php';
 
