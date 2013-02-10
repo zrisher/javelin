@@ -31,6 +31,9 @@ session_z_begin()
     
     <body>
         
+        <?php print_p('server name is '.$_SERVER['SERVER_NAME']);
+        print_p('script name is '.$_SERVER['SCRIPT_NAME']); ?>
+        
         <h1>The Tool</h1>
         
         <div>
