@@ -46,7 +46,11 @@ $oauthc->setNonce(rand());
 
 if(empty($_SESSION['oauth_lrequest_secret'])) {
     //get the request token and store it
-    $request_token_info = $oauthc->getRequestToken($config['oauth']['requesttokenurl'],$callback_url);
+    try {
+    $request_token_info = $oauthc->getRequestToken($config['oauth']['requesttokenurl'],$callback_url);}
+    catch (exception $e){
+        print_xml($oauthc->getLastResponse());
+    }
     $_SESSION['oauth_lrequest_secret'] = $request_token_info['oauth_token_secret'];
     $_SESSION['oauth_lrequest_token'] = $request_token_info['oauth_token'];
     //forward user to authorize url
