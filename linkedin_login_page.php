@@ -29,7 +29,8 @@ require 'linkedin_helper.php';
 
 session_start();
 
-$callback_url = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['SCRIPT_NAME'];//better than PHP_SELF, no pathinfo
+//$callback_url = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['SCRIPT_NAME'];//better than PHP_SELF, no pathinfo
+$callback_url = 'http://testredirect.com';
 
 if (isset($_POST['redirect_url'])){
     $_SESSION['current_callback_url'] = $_POST['redirect_url'];
