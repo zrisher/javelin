@@ -9,7 +9,7 @@
 error_reporting(E_ALL); 
 ini_set( 'display_errors','1');
 
-require 'helper.php';
+require_once 'helper.php';
 require 'session_manager.php';
 require 'linkedin_helper.php';
 require 'config.php';
