@@ -37,12 +37,11 @@ session_z_begin()
         print_p('script name is '.$_SERVER['SCRIPT_NAME']); 
         print_p('file path name is '.dirname(__FILE__));
         print_p('http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']));
-         */
         print_p($config['urls']['redirect']);
-        
+        */
         ?>
         
-        <h1>The Tool</h1>
+        <h1>Welcome to Javelin</h1>
         
         <div>
             <p>LinkedIn Session:</p>
