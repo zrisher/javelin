@@ -52,7 +52,7 @@ session_z_begin()
                 echo '
                 <p>Please log in to LinkedIn to use this tool.</p>
                 <form action="linkedin_login_page.php" method="post">
-                <input type="hidden" name="redirect_url" value="" />
+                <input type="hidden" name="redirect_url" value="'.$config['urls']['redirect'].'" />
                 <input type="submit" name="formSubmit" value="Log into LinkedIn" />
                 </form>
                 ';
