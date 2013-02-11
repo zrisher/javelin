@@ -31,10 +31,13 @@ session_z_begin()
     
     <body>
         
-        <?php print_p('server name is '.$_SERVER['SERVER_NAME']);
+        <?php 
+        /*
+        print_p('server name is '.$_SERVER['SERVER_NAME']);
         print_p('script name is '.$_SERVER['SCRIPT_NAME']); 
         print_p('file path name is '.dirname(__FILE__));
         print_p('http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']));
+         */
         print_p($config['urls']['redirect']);
         
         ?>
@@ -49,7 +52,7 @@ session_z_begin()
                 echo '
                 <p>Please log in to LinkedIn to use this tool.</p>
                 <form action="linkedin_login_page.php" method="post">
-                <input type="hidden" name="redirect_url" value="<?php echo $config['urls']['redirect']; ?>" />
+                <input type="hidden" name="redirect_url" value="" />
                 <input type="submit" name="formSubmit" value="Log into LinkedIn" />
                 </form>
                 ';
