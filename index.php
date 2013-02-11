@@ -49,7 +49,7 @@ session_z_begin()
                 echo '
                 <p>Please log in to LinkedIn to use this tool.</p>
                 <form action="linkedin_login_page.php" method="post">
-                <input type="hidden" name="redirect_url" value="http://avarice.elasticbeanstalk.com/avarice" />
+                <input type="hidden" name="redirect_url" value="<?php echo $config['urls']['redirect']; ?>" />
                 <input type="submit" name="formSubmit" value="Log into LinkedIn" />
                 </form>
                 ';
