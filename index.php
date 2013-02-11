@@ -35,6 +35,7 @@ session_z_begin()
         print_p('script name is '.$_SERVER['SCRIPT_NAME']); 
         print_p('file path name is '.dirname(__FILE__));
         print_p('http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']));
+        print_p($config['urls']['redirect']);
         
         ?>
         
